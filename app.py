@@ -27,7 +27,6 @@ def webhook():
         raw_data = flask.request.get_data().decode('utf-8')
         logger.info(raw_data)
         bot.send_message(CHAT_ID, raw_data)
-        return
     else:
         flask.abort(403)
 
