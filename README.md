@@ -1,4 +1,4 @@
-<h1 align="center">🤖 CI Bot</h1>
+<h1 align="center">💬 Telegram Webhook Forwarder Bot</h1>
 <p align="center">
     <em>ChatOps as a Service</em>
 </p>
@@ -6,7 +6,6 @@
 <p align="center">
     <img src="https://img.shields.io/github/license/TechProber/ci-bot?color=critical" alt="License"/>
     <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Ftechprober%2Ftelegram-webhook-forwarder-bot&count_bg=%238032AA&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false"/>
-    <img src="https://img.shields.io/tokei/lines/github/TechProber/telegram-webhook-forwarder-bot?color=lightgrey" alt="lines">
     <img src="https://custom-icon-badges.herokuapp.com/github/issues-pr-closed/techprober/telegram-webhook-forwarder-bot?color=purple&logo=git-pull-request&logoColor=white"/>
     <img src="https://img.shields.io/github/last-commit/techprober/telegram-webhook-forwarder-bot" alt="lastcommit"/>
 </p>
