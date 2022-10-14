@@ -18,6 +18,8 @@ Maintainer: [ Kevin Yu (@yqlbu) ](https://github.com/yqlbu)
 
 The `telegram-webhook-forwarder-bot` forwards any incoming webhooks to the target telegram chat.
 
+The bot is written in Python using Web Server Gateway Interface (WSGI) and Flask
+
 ## Prerequisites
 
 Install depedencies
