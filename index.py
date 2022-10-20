@@ -10,14 +10,16 @@ It receives payload data from the incoming webhooks and forward it to the target
 import logging
 import telebot
 import os
+import json
 import flask
 
-from dotenv import dotenv_values
-config = dotenv_values(".env")
+from dotenv import load_dotenv
 
-API_TOKEN = config["API_TOKEN"]
-CHAT_ID = config["CHAT_ID"]
-WEBHOOK_PATH = config["WEBHOOK_PATH"]
+load_dotenv()
+
+API_TOKEN = os.getenv("API_TOKEN")
+CHAT_ID = os.getenv("CHAT_ID")
+WEBHOOK_PATH = os.getenv("WEBHOOK_PATH")
 
 logger = telebot.logger
 telebot.logger.setLevel(logging.INFO)
@@ -28,9 +30,17 @@ app = flask.Flask(__name__)
 @app.route(WEBHOOK_PATH, methods=["POST"])
 def webhook():
     if flask.request.headers.get("content-type") == "application/json":
-        raw_data = flask.request.get_data().decode("utf-8")
+        raw_data = flask.request.get_json()
         logger.info(raw_data)
-        bot.send_message(CHAT_ID, raw_data)
+        bot.send_message(
+            CHAT_ID,
+            json.dumps(
+                raw_data,
+                ensure_ascii=False,
+                indent=4,
+                sort_keys=True
+            )
+        )
         return flask.jsonify({"result": "ok!"})
     else:
         flask.abort(403)
