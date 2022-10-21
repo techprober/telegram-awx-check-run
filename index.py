@@ -32,6 +32,30 @@ def webhook():
     if flask.request.headers.get("content-type") == "application/json":
         raw_data = flask.request.get_json()
         logger.info(raw_data)
+        if "id" in raw_data.keys():
+            payload = {
+                "id": raw_data["id"],
+                "name": raw_data["name"],
+                "url": raw_data["url"],
+                "created_by": raw_data["created_by"],
+                "started": raw_data["started"],
+                "finished": raw_data["finished"],
+                "status": raw_data["status"],
+                "inventory": raw_data["inventory"],
+                "project": raw_data["project"],
+                "playbook": raw_data["playbook"],
+                "credential": raw_data["credential"],
+                "limit": raw_data["limit"],
+            }
+            bot.send_message(
+                CHAT_ID,
+                json.dumps(
+                    payload,
+                    ensure_ascii=False,
+                    indent=4,
+                    sort_keys=True
+                )
+            )
         bot.send_message(
             CHAT_ID,
             json.dumps(
